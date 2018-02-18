@@ -47,26 +47,12 @@ public final class FacebookFactory implements java.io.Serializable {
     private final Configuration conf;
 
     static {
-        String className = null;
-        if (ConfigurationContext.getInstance().isGAE()) {
-            final String APP_ENGINE_TWITTER_IMPL = "facebook4j.AppEngineFacebookImpl";
-            try {
-                Class.forName(APP_ENGINE_TWITTER_IMPL);
-                className = APP_ENGINE_TWITTER_IMPL;
-            } catch (ClassNotFoundException ignore) {
-            }
-        }
-        if (className == null) {
-            className = "facebook4j.FacebookImpl";
-        }
         Constructor<Facebook> constructor;
         Class clazz;
         try {
-            clazz = Class.forName(className);
+            clazz = FacebookImpl.class;
             constructor = clazz.getDeclaredConstructor(Configuration.class, Authorization.class);
         } catch (NoSuchMethodException e) {
-            throw new AssertionError(e);
-        } catch (ClassNotFoundException e) {
             throw new AssertionError(e);
         }
         FACEBOOK_CONSTRUCTOR = constructor;

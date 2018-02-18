@@ -2879,7 +2879,7 @@ class FacebookImpl extends FacebookBaseImpl implements Facebook {
                 response = http.get(url, auth);
             } finally {
                 long elapsedTime = System.currentTimeMillis() - start;
-                FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
+                //FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
             }
             return response;
         }
@@ -2896,7 +2896,7 @@ class FacebookImpl extends FacebookBaseImpl implements Facebook {
                 response = http.get(url, parameters, (containsAccessToken(parameters) ? null : auth));
             } finally {
                 long elapsedTime = System.currentTimeMillis() - start;
-                FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
+                //FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
             }
             return response;
         }
@@ -2913,7 +2913,7 @@ class FacebookImpl extends FacebookBaseImpl implements Facebook {
                 response = http.get(url);
             } finally {
                 long elapsedTime = System.currentTimeMillis() - start;
-                FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
+                //FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
             }
             return response;
         }
@@ -2930,7 +2930,7 @@ class FacebookImpl extends FacebookBaseImpl implements Facebook {
                 response = http.post(url, auth);
             } finally {
                 long elapsedTime = System.currentTimeMillis() - start;
-                FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
+                //FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
             }
             return response;
         }
@@ -2947,7 +2947,7 @@ class FacebookImpl extends FacebookBaseImpl implements Facebook {
                 response = http.post(url, parameters, (containsAccessToken(parameters) ? null : auth));
             } finally {
                 long elapsedTime = System.currentTimeMillis() - start;
-                FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
+                //FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
             }
             return response;
         }
@@ -2964,7 +2964,7 @@ class FacebookImpl extends FacebookBaseImpl implements Facebook {
                 response = http.delete(url, auth);
             } finally {
                 long elapsedTime = System.currentTimeMillis() - start;
-                FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
+                //FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
             }
             return response;
         }
@@ -2981,7 +2981,7 @@ class FacebookImpl extends FacebookBaseImpl implements Facebook {
                 response = http.delete(url, parameters, (containsAccessToken(parameters) ? null : auth));
             } finally {
                 long elapsedTime = System.currentTimeMillis() - start;
-                FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
+                //FacebookAPIMonitor.getInstance().methodCalled(url, elapsedTime, isOk(response));
             }
             return response;
         }

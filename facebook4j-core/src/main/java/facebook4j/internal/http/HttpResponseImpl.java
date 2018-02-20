@@ -16,11 +16,13 @@
 
 package facebook4j.internal.http;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.ZipException;
 
 /**
  * @author Yusuke Yamamoto - yusuke at mac.com
@@ -37,8 +39,19 @@ public class HttpResponseImpl extends HttpResponse {
             is = con.getInputStream();
         }
         if (is != null && "gzip".equals(con.getContentEncoding())) {
-            // the response is gzipped
-            is = new GZIPInputStream(is);
+            is  = new BufferedInputStream(is);
+            if(is.markSupported()) {
+                is.mark(64);
+            }
+
+            try {
+                // the response is gzipped
+                is = new GZIPInputStream(is);
+            }catch (ZipException ignore){
+                if(is.markSupported()) {
+                    is.reset();
+                }
+            }
         }
     }
 

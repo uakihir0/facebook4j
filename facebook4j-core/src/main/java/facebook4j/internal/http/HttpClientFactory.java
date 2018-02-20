@@ -44,11 +44,7 @@ public final class HttpClientFactory {
             }
         }
         if (null == clazz) {
-            try {
-                clazz = Class.forName("facebook4j.internal.http.HttpClientImpl");
-            } catch (ClassNotFoundException cnfe) {
-                throw new AssertionError(cnfe);
-            }
+            clazz = HttpClientImpl.class;
         }
         try {
             HTTP_CLIENT_CONSTRUCTOR = clazz.getConstructor(HttpClientConfiguration.class);
